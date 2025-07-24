@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#8B5CF6">
+    <meta name="description" content="TechMentor AI - Empowering women in tech through AI-driven learning">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="data:application/manifest+json;base64,ewogICJuYW1lIjogIlRlY2hNZW50b3IgQUkgLSBMZWFybmluZyBBc3Npc3RhbnQiLAogICJzaG9ydF9uYW1lIjogIlRlY2hNZW50b3IgQUkiLAogICJkZXNjcmlwdGlvbiI6ICJFbXBvd2VyaW5nIHdvbWVuIGluIHRlY2ggdGhyb3VnaCBBSS1kcml2ZW4gbGVhcm5pbmciLAogICJzdGFydF91cmwiOiAiLyIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgInRoZW1lX2NvbG9yIjogIiM4QjVDRjYiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiNmZmZmZmYiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUIzYVdSMGFEMGlNVGt5SWlCb1pXbG5hSFE5SWpFNU1pSWdkbWxsZDBKdmVEMGlNQ0F3SURFNU1pQXhPVElpSUdacGJHdzlJbTV2Ym1VaUlIaHRiRzV6UFNKb2RIUndPaTh2ZDNkM0xuY3pMbTl5Wnk4eU1EQXdMM04yWnlJK1BISmxZM1FnZDJsa2RHZzlJakU1TWlJZ2FHVnBaMmgwUFNJeE9USWlJSEo0UFNJeU5DSWdabWxzYkQwaWRYSnNLQ05uY21Ga2FXVnVkREJmYkdsdVpXRnlYekZmTVNraUx6NXdjR0YwYUNCa1BTSk5PVFlnTkRoRE9ERXVPVEEzTnlBME9DQTNNQzQxSURVNUxqUXdPRFlnTnpBdU5TQTNNeTQxUXpjd0xqVWdPRGN1TlRreE5DQTRNUzQ1TURoMklEazVJRGsySURrNVF6RXhNQzR3T1RFZ09Ua2dNVEl4TGpVZ09EY3VOVGt4TkNBeE1qRXVOU0EzTXk0MVF6RXlNUzQxSURVNUxqUXdPRFlnTVRFd0xqQTVNU0EwT0NBNU5pQTBPRm9pSUdacGJHdzlJbmRvYVhSbElpOCtQSEJoZEdnZ1pEMGlUVGsySURFd05VTTRNaTQ0SURBM05TQTNNaUF4TVRVdU9DQTNNaUF4TWpsV01UUTBTREV5TUZZeE1qbERNVEl3SURFMU5TNDRJREV3T1M0eUlERXdOU0E1TmlBeE1EVmFJaUJtYVd4c1BTSjNhR2wwWlNJdlBqeGtaV1p6UGp4c2FXNWxZWEpIY21Ga2FXVnVkQ0JwWkQwaVozSmhaR2xsYm5Rd1gyeHBibVZoY2w5eFh6RWlJSGd4UFNJd0lpQjVNVDBpTUNJZ2VESTlJakU1TWlJZ2VUSTlJakU1TWlJZ1ozSmhaR2xsYm5SVWJtbDBjejBpZFhObGNsTndZV05sVDI1VmMyVWlQanhzdDRCd0lITjBiM0F0WTI5c2IzSTlJaU00UWpWRFJqWWlMejQ4YzNSdmNDQnZabVp6WlhROUlqRWlJSE4wYjNBdFkyOXNiM0k5SWpNM09ETkdOQ0l2UGp3dmJHbHVaV0Z5UjNKaFpHbGxiblErUEM5a1pXWnpQand2YzNabkBhIiwKICAgICAgInNpemVzIjogIjE5MngxOTIiLAogICAgICAidHlwZSI6ICJpbWFnZS9zdmcreG1sIgogICAgfQogIF0KfQ==">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNCIgZmlsbD0idXJsKCNncmFkaWVudDBfbGluZWFyXzFfMSkiLz4KPHBhdGggZD0iTTE2IDhDMTMuNzkgOCAxMiA5Ljc5IDEyIDEyQzEyIDE0LjIxIDEzLjc5IDE2IDE2IDE2QzE4LjIxIDE2IDIwIDE0LjIxIDIwIDEyQzIwIDkuNzkgMTguMjEgOCAxNiA4WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTE2IDE3QzEzLjggMTcgMTIgMTguOCAxMiAyMVYyNEgyMFYyMUMyMCAxOC44IDE4LjIgMTcgMTYgMTdaIiBmaWxsPSJ3aGl0ZSIvPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJncmFkaWVudDBfbGluZWFyXzFfMSIgeDE9IjAiIHkxPSIwIiB4Mj0iMzIiIHkyPSIzMiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjOEI1Q0Y2Ii8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzM3ODNGNCIvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+Cjwvc3ZnPgo=">
+    
+    <title>TechMentor AI - Learning Assistant</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Google Translate -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,es,fr,pt,sw,ar,zh,hi,ru,de',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    <style>
+        /* Hide Google Translate banner */
+        .goog-te-banner-frame.skiptranslate { display: none !important; }
+        body { top: 0px !important; }
+        
+        /* Style the translate widget */
+        #google_translate_element select {
+            background: white;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 4px 8px;
+            font-size: 12px;
+        }
+        
+        /* Animation classes */
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        .slide-up { animation: slideUp 0.3s ease-out; }
+        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        
+        /* Custom scrollbar */
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #888; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #555; }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Google Translate Widget -->
+    <div style="position: fixed; top: 10px; right: 10px; z-index: 9999; background: white; padding: 5px 10px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border: 1px solid #e5e7eb;">
+        <div id="google_translate_element"></div>
+    </div>
+
+    <!-- Main App Container -->
+    <div id="app" class="min-h-screen">
+        <!-- Landing Page -->
+        <div id="landing-page" class="min-h-screen bg-gradient-to-br from-purple-600 via-blue-600 to-teal-500 flex items-center justify-center p-4">
+            <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center fade-in">
+                <div class="mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="message-circle" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h1 class="text-2xl font-bold text-gray-800 mb-2">TechMentor AI</h1>
+                    <p class="text-gray-600">Empowering women in tech through AI-driven learning</p>
+                </div>
+                
+                <div class="space-y-4">
+                    <button onclick="showLogin('student')" class="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2">
+                        <i data-lucide="book-open" class="w-5 h-5"></i>
+                        I'm a Student
+                    </button>
+                    
+                    <button onclick="showLogin('instructor')" class="w-full bg-gradient-to-r from-teal-500 to-green-500 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2">
+                        <i data-lucide="users" class="w-5 h-5"></i>
+                        I'm an Instructor
+                    </button>
+                </div>
+
+                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                    <p class="text-sm text-gray-600">
+                        <strong>Demo Credentials:</strong><br/>
+                        Student: student@demo.com / student123<br/>
+                        Instructor: instructor@demo.com / instructor123
+                    </p>
+                </div>
+
+                <div class="mt-4 text-xs text-gray-500">
+                    ✨ Features: Offline Learning • Multi-language • AI-Powered • Instructor Oversight
+                </div>
+            </div>
+        </div>
+
+        <!-- Login Page -->
+        <div id="login-page" class="hidden min-h-screen bg-gradient-to-br from-purple-600 via-blue-600 to-teal-500 flex items-center justify-center p-4">
+            <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full slide-up">
+                <div class="text-center mb-6">
+                    <h2 id="login-title" class="text-2xl font-bold text-gray-800 mb-2">Login</h2>
+                    <p class="text-gray-600">Welcome back to TechMentor AI!</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <input type="email" id="email" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Enter your email">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                        <input type="password" id="password" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Enter your password">
+                    </div>
+
+                    <div id="error-message" class="hidden text-red-600 text-sm text-center bg-red-50 p-2 rounded"></div>
+
+                    <button onclick="handleLogin()" class="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transition-all duration-200">
+                        Sign In
+                    </button>
+                </div>
+
+                <button onclick="showLanding()" class="w-full mt-4 text-gray-600 hover:text-gray-800 transition-colors">
+                    ← Back to Home
+                </button>
+            </div>
+        </div>
+
+        <!-- Student Chat Interface -->
+        <div id="chat-interface" class="hidden flex flex-col h-screen bg-gray-50">
+            <!-- Header -->
+            <div class="bg-white shadow-sm border-b p-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center">
+                        <i data-lucide="message-circle" class="w-4 h-4 text-white"></i>
+                    </div>
+                    <h1 class="text-lg font-semibold text-gray-800">TechMentor AI</h1>
+                </div>
+                
+                <div class="flex items-center gap-3">
+                    <button onclick="toggleOffline()" id="offline-toggle" class="flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium transition-colors bg-green-100 text-green-700 hover:bg-green-200">
+                        <i data-lucide="wifi" class="w-4 h-4"></i>
+                        Online
+                    </button>
+                    
+                    <button onclick="logout()" class="text-gray-600 hover:text-gray-800 transition-colors" title="Logout">
+                        <i data-lucide="log-out" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Messages -->
+            <div id="messages-container" class="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar">
+                <!-- Messages will be added here -->
+            </div>
+
+            <!-- Input -->
+            <div class="bg-white border-t p-4">
+                <div class="flex gap-2">
+                    <input type="text" id="message-input" placeholder="Ask me about programming, debugging, or career advice..." class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                    <button onclick="sendMessage()" class="bg-gradient-to-r from-purple-500 to-blue-500 text-white p-2 rounded-lg hover:shadow-lg transition-all duration-200">
+                        <i data-lucide="send" class="w-5 h-5"></i>
+                    </button>
+                </div>
+                
+                <div class="mt-2 text-xs text-gray-500">
+                    💡 Try: "What is JavaScript?", "How do I learn Python?", "What is HTML?", "How to get a tech job?"
+                </div>
+            </div>
+        </div>
+
+        <!-- Instructor Dashboard -->
+        <div id="instructor-dashboard" class="hidden min-h-screen bg-gray-50">
+            <!-- Header -->
+            <div class="bg-white shadow-sm border-b p-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-gradient-to-r from-teal-500 to-green-500 rounded-full flex items-center justify-center">
+                        <i data-lucide="bar-chart-3" class="w-4 h-4 text-white"></i>
+                    </div>
+                    <h1 class="text-lg font-semibold text-gray-800">Instructor Dashboard</h1>
+                </div>
+                
+                <button onclick="logout()" class="text-gray-600 hover:text-gray-800 transition-colors" title="Logout">
+                    <i data-lucide="log-out" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Navigation -->
+            <div class="bg-white border-b">
+                <div class="flex">
+                    <button onclick="showTab('analytics')" id="analytics-tab" class="px-6 py-3 font-medium text-sm transition-colors text-teal-600 border-b-2 border-teal-600">
+                        📊 Analytics
+                    </button>
+                    <button onclick="showTab('reviews')" id="reviews-tab" class="px-6 py-3 font-medium text-sm transition-colors text-gray-600 hover:text-gray-800">
+                        🔍 Review Responses
+                    </button>
+                </div>
+            </div>
+
+            <!-- Analytics Content -->
+            <div id="analytics-content" class="p-6 space-y-6">
+                <!-- Key Metrics -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-teal-500 slide-up">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Total Students</h3>
+                        <p class="text-3xl font-bold text-teal-600">1,247</p>
+                        <p class="text-xs text-gray-500 mt-1">+12% from last month</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-green-500 slide-up">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Active Today</h3>
+                        <p class="text-3xl font-bold text-green-600">89</p>
+                        <p class="text-xs text-gray-500 mt-1">Peak: 2-4 PM</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500 slide-up">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Questions Answered</h3>
+                        <p class="text-3xl font-bold text-blue-600">3,456</p>
+                        <p class="text-xs text-gray-500 mt-1">Avg: 285/day</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-purple-500 slide-up">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Satisfaction Rate</h3>
+                        <p class="text-3xl font-bold text-purple-600">94.2%</p>
+                        <p class="text-xs text-gray-500 mt-1">Based on 847 ratings</p>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">📈 Weekly Activity Trend</h3>
+                        <div class="h-48 bg-gradient-to-br from-blue-50 to-purple-50 rounded flex items-center justify-center border-2 border-dashed border-gray-300">
+                            <div class="text-center">
+                                <div class="text-4xl mb-2">📊</div>
+                                <p class="text-gray-600 font-medium">Interactive Chart</p>
+                                <p class="text-gray-500 text-sm">Live Data Visualization</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">🔥 Most Popular Topics</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-700 font-medium">JavaScript</span>
+                                <div class="flex items-center gap-2">
+                                    <div class="w-32 bg-gray-200 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-teal-500 to-green-500 h-2 rounded-full transition-all duration-1000" style="width: 90%"></div>
+                                    </div>
+                                    <span class="text-xs text-gray-500 w-10">90%</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-700 font-medium">Python</span>
+                                <div class="flex items-center gap-2">
+                                    <div class="w-32 bg-gray-200 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-teal-500 to-green-500 h-2 rounded-full transition-all duration-1000" style="width: 75%"></div>
+                                    </div>
+                                    <span class="text-xs text-gray-500 w-10">75%</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-700 font-medium">HTML/CSS</span>
+                                <div class="flex items-center gap-2">
+                                    <div class="w-32 bg-gray-200 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-teal-500 to-green-500 h-2 rounded-full transition-all duration-1000" style="width: 60%"></div>
+                                    </div>
+                                    <span class="text-xs text-gray-500 w-10">60%</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-700 font-medium">React</span>
+                                <div class="flex items-center gap-2">
+                                    <div class="w-32 bg-gray-200 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-teal-500 to-green-500 h-2 rounded-full transition-all duration-1000" style="width: 45%"></div>
+                                    </div>
+                                    <span class="text-xs text-gray-500 w-10">45%</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-700 font-medium">Data Science</span>
+                                <div class="flex items-center gap-2">
+                                    <div class="w-32 bg-gray-200 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-teal-500 to-green-500 h-2 rounded-full transition-all duration-1000" style="width: 30%"></div>
+                                    </div>
+                                    <span class="text-xs text-gray-500 w-10">30%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Regional Usage -->
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">🌍 Usage by Region</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="text-center p-4 bg-gradient-to-br from-purple-50 to-blue-50 rounded-lg">
+                            <div class="text-2xl font-bold text-purple-600">342</div>
+                            <div class="text-sm text-gray-600">Nigeria</div>
+                        </div>
+                        <div class="text-center p-4 bg-gradient-to-br from-green-50 to-teal-50 rounded-lg">
+                            <div class="text-2xl font-bold text-green-600">289</div>
+                            <div class="text-sm text-gray-600">Kenya</div>
+                        </div>
+                        <div class="text-center p-4 bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg">
+                            <div class="text-2xl font-bold text-blue-600">234</div>
+                            <div class="text-sm text-gray-600">Ghana</div>
+                        </div>
+                        <div class="text-center p-4 bg-gradient-to-br from-teal-50 to-green-50 rounded-lg">
+                            <div class="text-2xl font-bold text-teal-600">198</div>
+                            <div class="text-sm text-gray-600">Uganda</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews Content -->
+            <div id="reviews-content" class="hidden p-6 space-y-4">
+                <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-orange-500">
+                    <h2 class="text-xl font-semibold text-gray-800">🚨 Responses Requiring Review</h2>
+                    <p class="text-gray-600">AI responses flagged for instructor approval</p>
+                </div>
+                
+                <!-- Flagged Response 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm border slide-up">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="font-medium text-gray-800">Question from Sarah M.</h3>
+                            <p class="text-sm text-gray-600 mt-1">🔍 Flagged: Low confidence score</p>
+                            <p class="text-xs text-gray-500 mt-1">2 hours ago</p>
+                        </div>
+                        <span class="px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-700">
+                            85% confidence
+                        </span>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <p class="text-sm font-medium text-gray-700 mb-2">❓ Student Question:</p>
+                        <p class="text-gray-800 bg-gray-50 p-3 rounded-lg border-l-4 border-blue-300">What is machine learning?</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <p class="text-sm font-medium text-gray-700 mb-2">🤖 AI Response:</p>
+                        <p class="text-gray-800 bg-gray-50 p-3 rounded-lg border-l-4 border-purple-300">Machine learning is a subset of AI that enables computers to learn and make decisions from data without explicit programming. It's used in recommendations, image recognition, and predictive analytics.</p>
+                    </div>
+                    
+                    <div class="flex gap-3 flex-wrap">
+                        <button onclick="approveResponse(this)" class="flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
+                            <i data-lucide="check-circle" class="w-4 h-4"></i>
+                            Approve Response
+                        </button>
+                        <button onclick="rejectResponse(this)" class="flex items-center gap-2 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">
+                            <i data-lucide="x-circle" class="w-4 h-4"></i>
+                            Reject Response
+                        </button>
+                        <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+                            ✏️ Edit Response
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Flagged Response 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm border slide-up">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="font-medium text-gray-800">Question from Priya K.</h3>
+                            <p class="text-sm text-gray-600 mt-1">🔍 Flagged: Generic response</p>
+                            <p class="text-xs text-gray-500 mt-1">4 hours ago</p>
+                        </div>
+                        <span class="px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-700">
+                            72% confidence
+                        </span>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <p class="text-sm font-medium text-gray-700 mb-2">❓ Student Question:</p>
+                        <p class="text-gray-800 bg-gray-50 p-3 rounded-lg border-l-4 border-blue-300">How do I start in tech?</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <p class="text-sm font-medium text-gray-700 mb-2">🤖 AI Response:</p>
+                        <p class="text-gray-800 bg-gray-50 p-3 rounded-lg border-l-4 border-purple-300">Start by identifying your interests, learn foundational skills through online courses, build projects, and network with other professionals. Consider areas like web development, data analysis, or cybersecurity.</p>
+                    </div>
+                    
+                    <div class="flex gap-3 flex-wrap">
+                        <button onclick="approveResponse(this)" class="flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
+                            <i data-lucide="check-circle" class="w-4 h-4"></i>
+                            Approve Response
+                        </button>
+                        <button onclick="rejectResponse(this)" class="flex items-center gap-2 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">
+                            <i data-lucide="x-circle" class="w-4 h-4"></i>
+                            Reject Response
+                        </button>
+                        <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+                            ✏️ Edit Response
+                        </button>
+                    </div>
+                </div>
+
+                <!-- No more responses message -->
+                <div class="text-center py-8">
+                    <div class="text-gray-400 text-4xl mb-2">✅</div>
+                    <p class="text-gray-600">All caught up! No more responses to review.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Application State
+        let currentUser = null;
+        let isOnline = true;
+        let messages = [];
+        
+        // Q&A Database
+        const QA_PAIRS = {
+            "what is javascript": "JavaScript is a versatile programming language primarily used for web development. It runs in browsers and allows you to create interactive websites, handle user events, and manipulate web page content dynamically.",
+            "how do i learn python": "To learn Python effectively: 1) Start with basics like variables and data types, 2) Practice with small projects, 3) Use interactive platforms like Codecademy or Python.org tutorials, 4) Build real projects like calculators or web scrapers, 5) Join Python communities for support.",
+            "what is html": "HTML (HyperText Markup Language) is the standard markup language for creating web pages. It uses tags to structure content like headings, paragraphs, links, and images. HTML provides the basic building blocks of websites.",
+            "how to debug code": "Debugging strategies: 1) Read error messages carefully, 2) Use console.log() or print statements, 3) Check syntax and spelling, 4) Break code into smaller parts, 5) Use browser developer tools, 6) Ask for help in coding communities.",
+            "what is css": "CSS (Cascading Style Sheets) is used to style and layout web pages. It controls colors, fonts, spacing, positioning, and responsive design. CSS works with HTML to make websites visually appealing and user-friendly.",
+            "how to learn programming": "Start your programming journey by: 1) Choose a beginner-friendly language like Python or JavaScript, 2) Practice daily with coding exercises, 3) Build small projects to apply what you learn, 4) Join online communities for support, 5) Don't be afraid to make mistakes - they're part of learning!",
+            "what is react": "React is a popular JavaScript library for building user interfaces, especially web applications. It helps developers create interactive and dynamic websites by breaking them into reusable components. React is maintained by Meta (Facebook) and is widely used in the tech industry.",
+            "how to get a tech job": "To land your first tech job: 1) Build a portfolio of projects to showcase your skills, 2) Practice coding interviews and problem-solving, 3) Network with professionals on LinkedIn and at meetups, 4) Apply to entry-level positions and internships, 5) Consider coding bootcamps or online courses to fill skill gaps.",
+            "what is github": "GitHub is a platform where developers store, share, and collaborate on code projects. Think of it as 'Google Drive for code' - it keeps track of changes, allows multiple people to work together, and showcases your programming projects to potential employers."
+        };
+
+        // Initialize icons after page load
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+        });
+
+        // Navigation functions
+        function showLanding() {
+            hideAllViews();
+            document.getElementById('landing-page').classList.remove('hidden');
+        }
+
+        function showLogin(role) {
+            hideAllViews();
+            document.getElementById('login-page').classList.remove('hidden');
+            document.getElementById('login-title').textContent = role === 'student' ? 'Student Login' : 'Instructor Login';
+            document.getElementById('email').placeholder = role === 'student' ? 'student@demo.com' : 'instructor@demo.com';
+            document.getElementById('password').placeholder = role === 'student' ? 'student123' : 'instructor123';
+            currentUser = { role: role };
+        }
+
+        function showChat() {
+            hideAllViews();
+            document.getElementById('chat-interface').classList.remove('hidden');
+            initializeChat();
+        }
+
+        function showDashboard() {
+            hideAllViews();
+            document.getElementById('instructor-dashboard').classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        function hideAllViews() {
+            const views = ['landing-page', 'login-page', 'chat-interface', 'instructor-dashboard'];
+            views.forEach(view => {
+                document.getElementById(view).classList.add('hidden');
+            });
+        }
+
+        // Authentication
+        function handleLogin() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('error-message');
+
+            if ((email === 'student@demo.com' && password === 'student123') || 
+                (email === 'instructor@demo.com' && password === 'instructor123')) {
+                
+                errorDiv.classList.add('hidden');
+                currentUser.email = email;
+                
+                if (currentUser.role === 'student') {
+                    showChat();
+                } else {
+                    showDashboard();
+                }
+            } else {
+                errorDiv.textContent = 'Invalid credentials. Please use demo credentials.';
+                errorDiv.classList.remove('hidden');
+            }
+        }
+
+        function logout() {
+            currentUser = null;
+            messages = [];
+            showLanding();
+        }
+
+        // Chat functionality
+        function initializeChat() {
+            messages = [{
+                type: 'bot',
+                content: "Hello! I'm your AI Learning Assistant. I'm here to help you with your tech learning journey. Try asking me about programming languages, debugging, or career advice!",
+                timestamp: new Date().toLocaleTimeString()
+            }];
+            renderMessages();
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('message-input');
+            const messageText = input.value.trim();
+            
+            if (!messageText) return;
+
+            // Add user message
+            const userMessage = {
+                type: 'user',
+                content: messageText,
+                timestamp: new Date().toLocaleTimeString()
+            };
+            messages.push(userMessage);
+
+            // Generate AI response
+            const aiResponse = generateAIResponse(messageText);
+            const aiMessage = {
+                type: 'bot',
+                content: isOnline ? aiResponse : `🔄 Offline Mode: Showing cached response - ${aiResponse}`,
+                timestamp: new Date().toLocaleTimeString(),
+                isOffline: !isOnline
+            };
+            messages.push(aiMessage);
+
+            input.value = '';
+            renderMessages();
+            
+            // Scroll to bottom
+            const container = document.getElementById('messages-container');
+            setTimeout(() => {
+                container.scrollTop = container.scrollHeight;
+            }, 100);
+        }
+
+        function generateAIResponse(input) {
+            const normalizedInput = input.toLowerCase().trim();
+            
+            for (const [question, answer] of Object.entries(QA_PAIRS)) {
+                if (normalizedInput.includes(question) || 
+                    question.split(' ').some(word => normalizedInput.includes(word)) ||
+                    normalizedInput.split(' ').some(word => question.includes(word))) {
+                    return answer;
+                }
+            }
+            
+            return "I'm still learning about that topic. Could you try rephrasing your question or ask about JavaScript, Python, HTML, CSS, React, programming basics, or career advice?";
+        }
+
+        function renderMessages() {
+            const container = document.getElementById('messages-container');
+            container.innerHTML = '';
+            
+            messages.forEach(message => {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`;
+                
+                const contentDiv = document.createElement('div');
+                contentDiv.className = `max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
+                    message.type === 'user'
+                        ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white'
+                        : `${message.isOffline ? 'bg-yellow-100 border border-yellow-300' : 'bg-white'} text-gray-800 shadow-sm`
+                }`;
+                
+                contentDiv.innerHTML = `
+                    <p class="text-sm">${message.content}</p>
+                    <p class="text-xs mt-1 ${message.type === 'user' ? 'text-purple-100' : 'text-gray-500'}">${message.timestamp}</p>
+                `;
+                
+                messageDiv.appendChild(contentDiv);
+                container.appendChild(messageDiv);
+            });
+        }
+
+        function toggleOffline() {
+            isOnline = !isOnline;
+            const toggle = document.getElementById('offline-toggle');
+            
+            if (isOnline) {
+                toggle.className = 'flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium transition-colors bg-green-100 text-green-700 hover:bg-green-200';
+                toggle.innerHTML = '<i data-lucide="wifi" class="w-4 h-4"></i> Online';
+            } else {
+                toggle.className = 'flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium transition-colors bg-red-100 text-red-700 hover:bg-red-200';
+                toggle.innerHTML = '<i data-lucide="wifi-off" class="w-4 h-4"></i> Offline';
+            }
+            lucide.createIcons();
+        }
+
+        // Dashboard functionality
+        function showTab(tabName) {
+            // Update tab buttons
+            document.getElementById('analytics-tab').className = 'px-6 py-3 font-medium text-sm transition-colors text-gray-600 hover:text-gray-800';
+            document.getElementById('reviews-tab').className = 'px-6 py-3 font-medium text-sm transition-colors text-gray-600 hover:text-gray-800';
+            
+            // Update content visibility
+            document.getElementById('analytics-content').classList.add('hidden');
+            document.getElementById('reviews-content').classList.add('hidden');
+            
+            if (tabName === 'analytics') {
+                document.getElementById('analytics-tab').className = 'px-6 py-3 font-medium text-sm transition-colors text-teal-600 border-b-2 border-teal-600';
+                document.getElementById('analytics-content').classList.remove('hidden');
+            } else {
+                document.getElementById('reviews-tab').className = 'px-6 py-3 font-medium text-sm transition-colors text-teal-600 border-b-2 border-teal-600';
+                document.getElementById('reviews-content').classList.remove('hidden');
+            }
+        }
+
+        function approveResponse(button) {
+            const responseDiv = button.closest('.bg-white');
+            responseDiv.innerHTML = `
+                <div class="text-center py-8">
+                    <div class="text-green-500 text-4xl mb-2">✅</div>
+                    <p class="text-green-600 font-medium">Response Approved</p>
+                    <p class="text-gray-500 text-sm">Added to knowledge base</p>
+                </div>
+            `;
+        }
+
+        function rejectResponse(button) {
+            const responseDiv = button.closest('.bg-white');
+            responseDiv.innerHTML = `
+                <div class="text-center py-8">
+                    <div class="text-red-500 text-4xl mb-2">❌</div>
+                    <p class="text-red-600 font-medium">Response Rejected</p>
+                    <p class="text-gray-500 text-sm">Flagged for revision</p>
+                </div>
+            `;
+        }
+
+        // Enter key support
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                if (document.getElementById('login-page').style.display !== 'none') {
+                    handleLogin();
+                } else if (document.getElementById('chat-interface').style.display !== 'none') {
+                    sendMessage();
+                }
+            }
+        });
+
+        // PWA Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('data:text/javascript;base64,Ly8gU2ltcGxlIFNlcnZpY2UgV29ya2VyIGZvciBQV0EKY29uc3QgQ0FDSEVfTkFNRSA9ICd0ZWNobWVudG9yLWFpLXYxJzsKY29uc3QgdXJsc1RvQ2FjaGUgPSBbCiAgICAnLycKXTsKCnNlbGYuYWRkRXZlbnRMaXN0ZW5lcignaW5zdGFsbCcsIChldmVudCkgPT4gewogICAgZXZlbnQud2FpdFVudGlsKAogICAgICAgIGNhY2hlcy5vcGVuKENBQ0hFX05BTUUpCiAgICAgICAgICAgIC50aGVuKChjYWNoZSkgPT4gewogICAgICAgICAgICAgICAgcmV0dXJuIGNhY2hlLmFkZEFsbCh1cmxzVG9DYWNoZSk7CiAgICAgICAgICAgIH0pCiAgICApOwp9KTsKCnNlbGYuYWRkRXZlbnRMaXN0ZW5lcignZmV0Y2gnLCAoZXZlbnQpID0+IHsKICAgIGV2ZW50LnJlc3BvbmRXaXRoKAogICAgICAgIGNhY2hlcy5tYXRjaChldmVudC5yZXF1ZXN0KQogICAgICAgICAgICAudGhlbigocmVzcG9uc2UpID0+IHsKICAgICAgICAgICAgICAgIHJldHVybiByZXNwb25zZSB8fCBmZXRjaChldmVudC5yZXF1ZXN0KTsKICAgICAgICAgICAgfSkKICAgICk7Cn0pOw==')
+                    .then((registration) => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch((registrationError) => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
